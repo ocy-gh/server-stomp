@@ -20,17 +20,17 @@ public class WebSocketController {
 
     private Gson gson = new Gson();
 
-    @MessageMapping("/message")
-    @SendToUser("/queue/reply")
-    public String processMessageFromClient(@Payload String message, Principal principal) throws Exception {
-        return gson
-                .fromJson(message, Map.class)
-                .get("name").toString();
-    }
-
-    @MessageExceptionHandler
-    @SendToUser("/queue/errors")
-    public String handleException(Throwable exception) {
-        return exception.getMessage();
-    }
+//    @MessageMapping("/message")
+//    @SendToUser("/queue/reply")
+//    public String processMessageFromClient(@Payload String message, Principal principal) throws Exception {
+//        return gson
+//                .fromJson(message, Map.class)
+//                .get("name").toString();
+//    }
+//
+//    @MessageExceptionHandler
+//    @SendToUser("/queue/errors")
+//    public String handleException(Throwable exception) {
+//        return exception.getMessage();
+//    }
 }

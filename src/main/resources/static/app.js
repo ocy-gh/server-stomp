@@ -44,29 +44,51 @@ function setConnected(connected) {
 //     });
 // }
 
+// function connect() {
+//     var socket = new SockJS('http://localhost:8080/gs-guide-websocket');
+//     stompClient = Stomp.over(socket);
+//
+//     stompClient.connect({}, function(frame) {
+//         stompClient.subscribe("/user/queue/errors", function(message) {
+//             alert("Error " + message.body);
+//         });
+//
+//         stompClient.subscribe("/user/queue/reply", function(message) {
+//             alert("Message " + message.body);
+//         });
+//     }, function(error) {
+//         alert("STOMP error " + error);
+//     });
+// }
+
 function connect() {
-    var socket = new SockJS('http://localhost:8080/gs-guide-websocket');
+    // var socket = new SockJS('http://47.254.235.59:8082/gs-guide-websocket');
+    var socket = new SockJS('http://localhost:8082/gs-guide-websocket');
     stompClient = Stomp.over(socket);
+    stompClient.connect({}, function (frame) {
+        setConnected(true);
+        console.log('Connected: ' + frame);
+        stompClient.subscribe('/topic/greetings', function (greeting) {
+            showGreeting(JSON.parse(greeting.body).content);
 
-    stompClient.connect({}, function(frame) {
-        stompClient.subscribe("/user/queue/errors", function(message) {
-            alert("Error " + message.body);
-        });
+            var test = {name: "abc"};
+            $.ajax({
+                // url: 'https://www.excerp.tech/api/wms/login',
+                url: 'http://47.254.235.59:8082',
+                // url: 'http://localhost:8080',
+                type: 'post',
+                data: JSON.stringify(test),
+                contentType: 'application/json',
 
-        stompClient.subscribe("/user/queue/reply", function(message) {
-            alert("Message " + message.body);
-        });
-    }, function(error) {
-        alert("STOMP error " + error);
-    });
-}
-
-function disconnect() {
-    if (stompClient != null) {
-        stompClient.close();
-    }
-    setConnected(false);
-    console.log("Disconnected");
+                success: function (response) {
+                    if(response.status===200){
+                        console.log("jghjghj");
+                    }
+                    console.log("outside outside");
+                }
+            });
+        })
+    })
 }
 
 function disconnect() {
@@ -78,7 +100,7 @@ function disconnect() {
 }
 
 function sendName() {
-    stompClient.send("/app/message", {}, JSON.stringify({'name': $("#name").val()}));
+    stompClient.send("/app/hello", {}, JSON.stringify({'name': $("#name").val()}));
 }
 
 function showGreeting(message) {
