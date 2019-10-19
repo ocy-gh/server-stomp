@@ -5,6 +5,8 @@ import com.example.server.entity.po.HelloMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.util.HtmlUtils;
 
 @Controller
@@ -15,6 +17,15 @@ public class GreetingController {
     public Greeting greeting(HelloMessage message) throws Exception {
         Thread.sleep(1000); // simulated delay
         return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+    }
+
+    //TESTING
+    @GetMapping("/ticket_submission")
+    public String ticketSubmission(Model model){
+        String destination = "Ticket Submission";
+
+        model.addAttribute("destination", destination);
+        return "ticket/ticket_submission";
     }
 
 }
