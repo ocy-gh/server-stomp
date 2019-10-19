@@ -27,4 +27,11 @@ public class GreetingController {
 //        return "index";
 //    }
 
+//    @GetMapping("/hello")
+//    @SendTo("/topic/greetings")
+//    public String greeting(HelloMessage message) throws Exception {
+//        Thread.sleep(1000); // simulated delay
+//        return "index";
+//    }
+
 }
