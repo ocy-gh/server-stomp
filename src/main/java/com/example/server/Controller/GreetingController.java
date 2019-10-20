@@ -20,6 +20,7 @@ public class GreetingController {
         return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
 
+    //this is master testing
 //    @GetMapping("/hello")
 //    @SendTo("/topic/greetings")
 //    public String greeting(HelloMessage message) throws Exception {
