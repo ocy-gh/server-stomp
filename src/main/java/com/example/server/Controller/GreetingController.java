@@ -35,4 +35,20 @@ public class GreetingController {
 //        return "index";
 //    }
 
+    //testing
+     @GetMapping("/hello")
+//    @SendTo("/topic/greetings")
+    public String hellow(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return "index";
+    }
+
+    //testing
+    @GetMapping("/hello")
+//    @SendTo("/topic/greetings")
+    public String willow(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return "index";
+    }
+
 }
