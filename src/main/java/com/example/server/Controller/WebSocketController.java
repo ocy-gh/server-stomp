@@ -51,4 +51,11 @@ public class WebSocketController {
     public String reading(Throwable exception) {
         return exception.getMessage();
     }
+
+    //testing
+    @MessageExceptionHandler
+    @SendToUser("/queue/errors")
+    public String handleException132(Throwable exception) {
+        return exception.getMessage();
+    }
 }
