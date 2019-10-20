@@ -33,4 +33,23 @@ public class WebSocketController {
     public String handleException(Throwable exception) {
         return exception.getMessage();
     }
+
+
+    //TESTING
+    @MessageMapping("/testing")
+    @SendToUser("/queue/testing")
+    public String MessageFromClient(@Payload String message, Principal principal) throws Exception {
+        return gson
+                .fromJson(message, Map.class)
+                .get("name").toString();
+    }
+
+    //TESTING
+    @MessageMapping("/testing")
+    @SendToUser("/queue/testing")
+    public String TestingMessage(@Payload String message, Principal principal) throws Exception {
+        return gson
+                .fromJson(message, Map.class)
+                .get("name").toString();
+    }
 }

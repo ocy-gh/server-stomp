@@ -4,6 +4,9 @@ public class Greeting {
 
     private String content;
 
+    //TESTING
+    private String name;
+
     public Greeting() {
     }
 
