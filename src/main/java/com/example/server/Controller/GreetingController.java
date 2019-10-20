@@ -29,4 +29,12 @@ public class GreetingController {
         return "ticket/ticket_submission";
     }
 
+    //TESTING
+    @GetMapping("/ticket_registration")
+    public String ticket(Model model){
+        String destination = "Ticket Submission";
+
+        model.addAttribute("destination", destination);
+        return "ticket/ticket_submission";
+    }
 }
