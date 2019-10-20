@@ -33,4 +33,16 @@ public class WebSocketController {
 //    public String handleException(Throwable exception) {
 //        return exception.getMessage();
 //    }
+
+    //testing
+    @MessageExceptionHandler
+    public String loading(Throwable exception) {
+        return exception.getMessage();
+    }
+
+    //testing
+    @MessageExceptionHandler
+    public String writing(Throwable exception) {
+        return exception.getMessage();
+    }
 }
