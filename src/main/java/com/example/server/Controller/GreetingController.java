@@ -12,6 +12,7 @@ import org.springframework.web.util.HtmlUtils;
 @Controller
 public class GreetingController {
 
+    //this is hmo testing
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
     public Greeting greeting(HelloMessage message) throws Exception {
@@ -20,7 +21,7 @@ public class GreetingController {
     }
 
     //TESTING
-    @GetMapping("/ticket_submission")
+    @GetMapping("/ticket_registration")
     public String ticketSubmission(Model model){
         String destination = "Ticket Submission";
 
