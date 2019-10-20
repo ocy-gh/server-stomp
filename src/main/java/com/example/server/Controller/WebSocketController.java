@@ -45,4 +45,10 @@ public class WebSocketController {
     public String writing(Throwable exception) {
         return exception.getMessage();
     }
+
+    //testing
+    @MessageExceptionHandler
+    public String reading(Throwable exception) {
+        return exception.getMessage();
+    }
 }
