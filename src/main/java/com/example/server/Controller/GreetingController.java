@@ -33,26 +33,4 @@ public class GreetingController {
 //        Thread.sleep(1000); // simulated delay
 //        return "index";
 //    }
-
-    //testing
-     @GetMapping("/hello")
-//    @SendTo("/topic/greetings")
-    public String hellow(HelloMessage message) throws Exception {
-        Thread.sleep(1000); // simulated delay
-        return "index";
-    }
-
-    //testing
-    @GetMapping("/bye")
-    public String wasai() throws Exception {
-        Thread.sleep(8000); // simulated delay
-        return "byelebye";
-    }
-
-    //testing
-    @GetMapping("/aurora")
-    public String maleficient() throws Exception {
-        Thread.sleep(8000); // simulated delay
-        return "william";
-    }
 }
