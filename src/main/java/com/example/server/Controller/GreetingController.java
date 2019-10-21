@@ -5,6 +5,7 @@ import com.example.server.entity.po.HelloMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.util.HtmlUtils;
@@ -27,6 +28,15 @@ public class GreetingController {
 //        return "index";
 //    }
 
+    //TESTING
+    @GetMapping("/ticket_registration")
+    public String ticketSubmission(Model model){
+        String destination = "Ticket Submission";
+
+        model.addAttribute("destination", destination);
+        return "ticket/ticket_submission";
+    }
+
 //    @GetMapping("/hello")
 //    @SendTo("/topic/greetings")
 //    public String greeting(HelloMessage message) throws Exception {
@@ -41,5 +51,13 @@ public class GreetingController {
         Thread.sleep(1000); // simulated delay
         return "index";
     }
-    
+
+    //testing
+    @GetMapping("/hello")
+//    @SendTo("/topic/greetings")
+    public String willow(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return "index";
+    }
+
 }
