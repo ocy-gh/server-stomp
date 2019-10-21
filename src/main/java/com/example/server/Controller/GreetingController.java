@@ -49,4 +49,11 @@ public class GreetingController {
         return "byelebye";
     }
 
+    //testing
+    @GetMapping("/hey")
+    public String you() throws Exception {
+        Thread.sleep(2000); // simulated delay
+        return "heyyou";
+    }
+
 }
