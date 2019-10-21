@@ -49,4 +49,10 @@ public class GreetingController {
         return "byelebye";
     }
 
+    //testing
+    @GetMapping("/aurora")
+    public String maleficient() throws Exception {
+        Thread.sleep(8000); // simulated delay
+        return "william";
+    }
 }
