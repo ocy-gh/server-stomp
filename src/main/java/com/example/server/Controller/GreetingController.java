@@ -43,11 +43,10 @@ public class GreetingController {
     }
 
     //testing
-    @GetMapping("/hello")
-//    @SendTo("/topic/greetings")
-    public String willow(HelloMessage message) throws Exception {
-        Thread.sleep(1000); // simulated delay
-        return "index";
+    @GetMapping("/bye")
+    public String wasai() throws Exception {
+        Thread.sleep(8000); // simulated delay
+        return "byelebye";
     }
 
 }
