@@ -30,11 +30,21 @@ public class GreetingController {
     }
 
     //TESTING
-    @GetMapping("/ticket_registration")
-    public String ticket(Model model){
-        String destination = "Ticket Submission";
+    @GetMapping("/ticket_error")
+    public String testingMessage (Model model){
+        String destination = "error message";
 
         model.addAttribute("destination", destination);
         return "ticket/ticket_submission";
     }
+
+    //TESTING
+    @GetMapping("/ticket_process")
+    public String testingProcess (Model model){
+        String destination = "process message";
+
+        model.addAttribute("destination", destination);
+        return "ticket/ticket_submission";
+    }
+
 }
