@@ -55,5 +55,17 @@ public class GreetingController {
         Thread.sleep(2000); // simulated delay
         return "heyyou";
     }
+    //testing
+    @GetMapping("/hey")
+    public String ya() throws Exception {
+        Thread.sleep(2000); // simulated delay
+        return "heyyou";
+    }
+    //testing
+    @GetMapping("/hey")
+    public String se() throws Exception {
+        Thread.sleep(2000); // simulated delay
+        return "heyyou";
+    }
 
 }
