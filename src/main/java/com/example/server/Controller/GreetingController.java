@@ -5,46 +5,49 @@ import com.example.server.entity.po.HelloMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.util.HtmlUtils;
 
 @Controller
 public class GreetingController {
 
-    //this is hmo testing
+    @CrossOrigin(origins = "http://localhost:8080")
     @MessageMapping("/hello")
     @SendTo("/topic/greetings")
     public Greeting greeting(HelloMessage message) throws Exception {
         Thread.sleep(1000); // simulated delay
         return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
     }
+// testing testing
+//    @GetMapping("/hello")
+//    @SendTo("/topic/greetings")
+//    public String greeting(HelloMessage message) throws Exception {
+//        Thread.sleep(1000); // simulated delay
+//        return "index";
+//    }
 
-    //TESTING
-    @GetMapping("/ticket_registration")
-    public String ticketSubmission(Model model){
-        String destination = "Ticket Submission";
+//    @GetMapping("/hello")
+//    @SendTo("/topic/greetings")
+//    public String greeting(HelloMessage message) throws Exception {
+//        Thread.sleep(1000); // simulated delay
+//        return "index";
+//    }
 
-        model.addAttribute("destination", destination);
-        return "ticket/ticket_submission";
+    //testing
+     @GetMapping("/hello")
+//    @SendTo("/topic/greetings")
+    public String hellow(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return "index";
     }
 
-    //TESTING
-    @GetMapping("/ticket_error")
-    public String testingMessage (Model model){
-        String destination = "error message";
-
-        model.addAttribute("destination", destination);
-        return "ticket/ticket_submission";
-    }
-
-    //TESTING
-    @GetMapping("/ticket_process")
-    public String testingProcess (Model model){
-        String destination = "process message";
-
-        model.addAttribute("destination", destination);
-        return "ticket/ticket_submission";
+    //testing
+    @GetMapping("/hello")
+//    @SendTo("/topic/greetings")
+    public String willow(HelloMessage message) throws Exception {
+        Thread.sleep(1000); // simulated delay
+        return "index";
     }
 
 }
