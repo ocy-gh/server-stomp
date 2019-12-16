@@ -24,8 +24,9 @@ function connect() {
 
             var data = "qwe";
             $.ajax({
-                // url: 'http://47.254.235.59:8082',
-                url:'https://www.excerp.tech/api/wms/login',
+                url: 'http://47.254.215.34:8082',
+                // url: 'http://localhost:8082',
+                // url:'https://www.excerp.tech/api/wms/login',
                 type: 'post',
                 data: JSON.stringify(data),
                 contentType: 'application/json',
@@ -62,8 +63,6 @@ $(function () {
     $( "#disconnect" ).click(function() { disconnect(); });
     $( "#send" ).click(function() { sendName(); });
 });
-
-////
 
 /*
 function connect() {
